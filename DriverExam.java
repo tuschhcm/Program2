@@ -9,10 +9,10 @@ public class DriverExam {
    //Constructor
    public DriverExam(char[] c) {
       
-		studentAnswers = new char[c.length];
-		
+      studentAnswers = new char[c.length];
+      
       //move passed array values to instance field
-		for(int i = 0; i < c.length; i++) {
+      for(int i = 0; i < c.length; i++) {
          studentAnswers[i] = c[i];
       }
    }
@@ -55,13 +55,13 @@ public class DriverExam {
       return 0;
    }
 
-	public static void main(String[] args) {
-		char[] s = {'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'};
-		DriverExam e = new DriverExam(s);
-		System.out.println(e.passed());
-	}
+   public static void main(String[] args) {
+      char[] s = {'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'};
+      DriverExam e = new DriverExam(s);
+      System.out.println(e.passed());
+   }
 
 }
 
-	
+   
 
