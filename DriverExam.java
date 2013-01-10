@@ -28,14 +28,15 @@ public class DriverExam {
       int index = 0;
       
       //compare answers
-      do{   
+      do{
+			
          if(studentAnswers[index] == correctAnswers[index]) {
             pass = true;
             index++;
          } else {
             pass = false;
          }
-      }while(pass = true && index < studentAnswers.length);
+      }while(pass == true && index < studentAnswers.length);
       
       return pass;   
    }
@@ -62,6 +63,4 @@ public class DriverExam {
    }
 
 }
-
-   
 
