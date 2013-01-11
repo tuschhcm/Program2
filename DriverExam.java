@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class DriverExam {
    
    //Instance fields
@@ -5,11 +7,13 @@ public class DriverExam {
    {'B','D','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','A'};
    
    private char[] studentAnswers;
+	
+	final private static int TEST_LENGTH = 20;
    
    //Constructor
    public DriverExam(char[] c) {
       
-      studentAnswers = new char[c.length];
+      studentAnswers = new char[TEST_LENGTH];
       
       //move passed array values to instance field
       for(int i = 0; i < c.length; i++) {
@@ -41,25 +45,68 @@ public class DriverExam {
       return pass;   
    }
    
+	/**
+		the questionsMissed method returns an array of
+		the question numbers where studentAnswers and
+		correctAnswers differed
+	*/
    public int[] questionsMissed() {
-      // todo: implement
-      return null;
+      
+		//ArrayList used because number of incorrect submissions is unknown
+		ArrayList<Integer> wrongAnswers = new ArrayList<Integer>();
+		
+		int index = 0;	//keep track of question being graded
+		
+		int[] returnAnswers;	//holds array to be returned to caller
+		
+		//loop through answers to find incorrect submissions
+		do{
+			if(studentAnswers[index] == correctAnswers[index]) {
+				index ++;
+			} else {
+				wrongAnswers.add(index + 1);
+				index++;
+			}
+		}while(index < studentAnswers.length);
+  
+  		//move incorrect submissions into a normal array
+  		returnAnswers = new int[wrongAnswers.size()];    
+		
+		for(int i = 0; i < wrongAnswers.size(); i++) {
+			returnAnswers[i] = wrongAnswers.get(i);
+		}
+		
+		//return incorrrect answers
+		return returnAnswers;
    }
    
+	/**
+		the totalCorrect method returns the total number
+		of questions the user got right
+	*/
    public int totalCorrect() {
       // todo: implement
       return 0;
    }
    
+	/**
+		the totalIncorrect method returns the total number
+		of questions the user got wrong
+	*/
    public int totalIncorrect() {
       // todo: implement
       return 0;
    }
 
    public static void main(String[] args) {
-      char[] s = {'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'};
+      char[] s = {'B','A','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','D'};
       DriverExam e = new DriverExam(s);
       System.out.println(e.passed());
+		
+		//print questions missed
+		for(int i = 0; i < e.questionsMissed().length; i++) {
+			System.out.println(e.questionsMissed()[i]);
+		}
    }
 
 }
