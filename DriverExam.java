@@ -33,7 +33,6 @@ public class DriverExam {
 
       //compare answers
       do{
-
          if(studentAnswers[index] == correctAnswers[index]) {
             pass = true;
             index++;
@@ -57,7 +56,7 @@ public class DriverExam {
 
       int index = 0; //keep track of question being graded
 
-      int[] returnAnswers; //holds array to be returned to caller
+      int[] toReturn; //holds array to be returned to caller
 
       //loop through answers to find incorrect submissions
       do{
@@ -70,14 +69,14 @@ public class DriverExam {
       }while(index < studentAnswers.length);
 
       //move incorrect submissions into a normal array
-      returnAnswers = new int[wrongAnswers.size()];
+      toReturn = new int[wrongAnswers.size()];
 
       for(int i = 0; i < wrongAnswers.size(); i++) {
-         returnAnswers[i] = wrongAnswers.get(i);
+         toReturn[i] = wrongAnswers.get(i);
       }
 
       //return incorrrect answers
-      return returnAnswers;
+      return toReturn;
    }
 
    /**
