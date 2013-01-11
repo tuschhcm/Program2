@@ -1,3 +1,15 @@
+//***********************************************************************
+// Project: Program 2
+// Account: cs11100n_nn
+//
+// Author: Craig Tuschhoff
+//
+// Completion time: 2 hours total
+//
+// Honor Code: I pledge that this program represents my own program code.
+// I received help from (no one) in designing and debugging my program.
+//***********************************************************************
+
 import java.util.ArrayList;
 
 public class DriverExam {
@@ -125,29 +137,6 @@ public class DriverExam {
 
 
       return wrongAnswerCount;
-   }
-
-   public static void main(String[] args) {
-      char[] s = {'B','A','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','D'};
-      DriverExam e = new DriverExam(s);
-
-      //test passed method
-      System.out.print("Pass/Fail: ");
-      System.out.println(e.passed());
-
-      //print questions missed
-      System.out.println("\nQuestions Missed: ");
-      for(int i = 0; i < e.questionsMissed().length; i++) {
-         System.out.println(e.questionsMissed()[i]);
-      }
-
-      //test totalCorrect
-      System.out.print("\nTotal Correct: ");
-      System.out.print(e.totalCorrect());
-
-      //test totalCorrect
-      System.out.print("\nTotal Incorrect: ");
-      System.out.print(e.totalIncorrect());
    }
 }
 
