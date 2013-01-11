@@ -85,8 +85,22 @@ public class DriverExam {
 		of questions the user got right
 	*/
    public int totalCorrect() {
-      // todo: implement
-      return 0;
+      
+		//holds position of current read
+		int index = 0;
+		int rightAnswerCount = 0;
+		
+		do{
+			if(studentAnswers[index] == correctAnswers[index]) {
+				rightAnswerCount++;
+				index ++;
+			} else {
+				index++;
+			}
+		}while(index < studentAnswers.length);
+
+		
+      return rightAnswerCount;
    }
    
 	/**
@@ -101,12 +115,20 @@ public class DriverExam {
    public static void main(String[] args) {
       char[] s = {'B','A','A','A','C','A','B','A','C','D','B','C','D','A','D','C','C','B','D','D'};
       DriverExam e = new DriverExam(s);
+		
+		//test passed method
+		System.out.print("Pass/Fail: ");
       System.out.println(e.passed());
 		
 		//print questions missed
+		System.out.println("\nQuestions Missed: ");
 		for(int i = 0; i < e.questionsMissed().length; i++) {
 			System.out.println(e.questionsMissed()[i]);
 		}
+		
+		//test totalIncorrect
+		System.out.print("\nTotal Correct: ");
+		System.out.print(e.totalCorrect());
    }
 
 }
