@@ -4,7 +4,7 @@
 //
 // Author: Craig Tuschhoff
 //
-// Completion time: 2 hours total
+// Completion time: 3 hours total
 //
 // Honor Code: I pledge that this program represents my own program code.
 // I received help from (no one) in designing and debugging my program.
