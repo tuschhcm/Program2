@@ -38,7 +38,7 @@ public class DriverExamDemo {
          //adjusts zero based iterator for displaying question number
          int currentQuestion = index + 1;
          
-         //
+         //display number of question to be answered
          System.out.print(currentQuestion + ": ");
          
          //get user answer
