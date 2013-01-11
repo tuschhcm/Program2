@@ -90,6 +90,7 @@ public class DriverExam {
 		int index = 0;
 		int rightAnswerCount = 0;
 		
+		//loop through answers and count correct submissions
 		do{
 			if(studentAnswers[index] == correctAnswers[index]) {
 				rightAnswerCount++;
@@ -108,8 +109,23 @@ public class DriverExam {
 		of questions the user got wrong
 	*/
    public int totalIncorrect() {
-      // todo: implement
-      return 0;
+      
+      //holds position of current read
+		int index = 0;
+		int wrongAnswerCount = 0;
+		
+		//loop through answers and count correct submissions
+		do{
+			if(studentAnswers[index] == correctAnswers[index]) {
+				index ++;
+			} else {
+				wrongAnswerCount++;
+				index++;
+			}
+		}while(index < studentAnswers.length);
+
+		
+      return wrongAnswerCount;
    }
 
    public static void main(String[] args) {
@@ -126,9 +142,13 @@ public class DriverExam {
 			System.out.println(e.questionsMissed()[i]);
 		}
 		
-		//test totalIncorrect
+		//test totalCorrect
 		System.out.print("\nTotal Correct: ");
 		System.out.print(e.totalCorrect());
+		
+		//test totalCorrect
+		System.out.print("\nTotal Incorrect: ");
+		System.out.print(e.totalIncorrect());
    }
 
 }
