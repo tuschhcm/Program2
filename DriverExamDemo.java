@@ -17,6 +17,9 @@ public class DriverExamDemo {
    
    //create an exam that is globally accessible
    private static DriverExam exam;
+
+   //declare test length
+   final private static TEST_LENGTH = 20;
    
    public static void main(String[] args) {
 
@@ -33,7 +36,7 @@ public class DriverExamDemo {
       System.out.println("Driver's License Exam");
       System.out.println("---------------------");
       
-      for(int index = 0; index < studentAnswers.length; index++) {
+      for(int index = 0; index < TEST_LENGTH; index++) {
          
          //adjusts zero based iterator for displaying question number
          int currentQuestion = index + 1;
@@ -42,8 +45,7 @@ public class DriverExamDemo {
          System.out.print(currentQuestion + ": ");
          
          //get user answer
-         String userInput;
-         userInput = keyboard.next();
+         String userInput = keyboard.next();
          studentAnswers[index] = userInput.charAt(0);
          
          //validate user input
