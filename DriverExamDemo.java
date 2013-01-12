@@ -19,7 +19,7 @@ public class DriverExamDemo {
    private static DriverExam exam;
 
    //declare test length
-   final private static TEST_LENGTH = 20;
+   final private static int TEST_LENGTH = 20;
    
    public static void main(String[] args) {
 
