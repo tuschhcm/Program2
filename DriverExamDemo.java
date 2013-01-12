@@ -33,6 +33,7 @@ public class DriverExamDemo {
       char legalAnswers[] = {'A', 'B', 'C', 'D'};
       
       //collect answers from student
+      System.out.print("\n");
       System.out.println("Driver's License Exam");
       System.out.println("---------------------");
       
@@ -105,5 +106,7 @@ public class DriverExamDemo {
       for(int i = 0; i < exam.questionsMissed().length; i++) {
          System.out.print(exam.questionsMissed()[i] + ", ");
       }
+
+      System.out.println("\n");
    }
 }
