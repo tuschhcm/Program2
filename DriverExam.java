@@ -10,8 +10,6 @@
 // I received help from (no one) in designing and debugging my program.
 //***********************************************************************
 
-import java.util.ArrayList;
-
 public class DriverExam {
 
    //Instance fields
@@ -21,6 +19,7 @@ public class DriverExam {
    private char[] studentAnswers;
 
    final private static int TEST_LENGTH = 20;
+	final private static int INCORRECT_ANS_ALLOWED = 5;
 
    //Constructor
    public DriverExam(char[] c) {
@@ -40,20 +39,11 @@ public class DriverExam {
    */
    public boolean passed() {
 
-      boolean pass;
-      int index = 0;
-
-      //compare answers
-      do{
-         if(studentAnswers[index] == correctAnswers[index]) {
-            pass = true;
-            index++;
-         } else {
-            pass = false;
-         }
-      }while(pass == true && index < studentAnswers.length);
-
-      return pass;
+  		//return false if the totalincorrect is greater than allowed    
+		if(totalIncorrect()> INCORRECT_ANS_ALLOWED) {
+			return false;
+		}
+		return true;
    }
 
    /**
@@ -63,32 +53,24 @@ public class DriverExam {
    */
    public int[] questionsMissed() {
 
-      //ArrayList used because number of incorrect submissions is unknown
-      ArrayList<Integer> wrongAnswers = new ArrayList<Integer>();
-
       int index = 0; //keep track of question being graded
+		int wrongAnswerIterator = 0; //keep track of wrong answer being added
 
-      int[] toReturn; //holds array to be returned to caller
+      int[] wrongAnswers = new int[totalIncorrect()]; //holds array to be returned to caller
 
       //loop through answers to find incorrect submissions
       do{
          if(studentAnswers[index] == correctAnswers[index]) {
             index ++;
          } else {
-            wrongAnswers.add(index + 1);
+            wrongAnswers[wrongAnswerIterator] = (index + 1);
             index++;
+				wrongAnswerIterator++;
          }
-      }while(index < studentAnswers.length);
+      }while(index < TEST_LENGTH);
 
-      //move incorrect submissions into a normal array
-      toReturn = new int[wrongAnswers.size()];
-
-      for(int i = 0; i < wrongAnswers.size(); i++) {
-         toReturn[i] = wrongAnswers.get(i);
-      }
-
-      //return incorrrect answers
-      return toReturn;
+     	//return array of incorrect answers
+      return wrongAnswers;
    }
 
    /**
@@ -109,10 +91,9 @@ public class DriverExam {
          } else {
             index++;
          }
-      }while(index < studentAnswers.length);
+      }while(index < TEST_LENGTH);
 
-
-      return rightAnswerCount;
+		return rightAnswerCount;
    }
 
    /**
@@ -120,23 +101,7 @@ public class DriverExam {
       of questions the user got wrong
    */
    public int totalIncorrect() {
-
-      //holds position of current read
-      int index = 0;
-      int wrongAnswerCount = 0;
-
-      //loop through answers and count correct submissions
-      do{
-         if(studentAnswers[index] == correctAnswers[index]) {
-            index ++;
-         } else {
-            wrongAnswerCount++;
-            index++;
-         }
-      }while(index < studentAnswers.length);
-
-
-      return wrongAnswerCount;
+      return correctAnswers.length - totalCorrect();
    }
 }
 
