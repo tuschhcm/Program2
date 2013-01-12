@@ -101,7 +101,7 @@ public class DriverExam {
       of questions the user got wrong
    */
    public int totalIncorrect() {
-      return correctAnswers.length - totalCorrect();
+      return TEST_LENGTH - totalCorrect();
    }
 }
 
