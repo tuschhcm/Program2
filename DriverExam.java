@@ -19,7 +19,7 @@ public class DriverExam {
    private char[] studentAnswers;
 
    final private static int TEST_LENGTH = 20;
-	final private static int INCORRECT_ANS_ALLOWED = 5;
+   final private static int INCORRECT_ANS_ALLOWED = 5;
 
    //Constructor
    public DriverExam(char[] c) {
@@ -39,11 +39,11 @@ public class DriverExam {
    */
    public boolean passed() {
 
-  		//return false if the totalincorrect is greater than allowed    
-		if(totalIncorrect()> INCORRECT_ANS_ALLOWED) {
-			return false;
-		}
-		return true;
+      //return false if the totalincorrect is greater than allowed    
+      if(totalIncorrect()> INCORRECT_ANS_ALLOWED) {
+         return false;
+      }
+      return true;
    }
 
    /**
@@ -54,7 +54,7 @@ public class DriverExam {
    public int[] questionsMissed() {
 
       int index = 0; //keep track of question being graded
-		int wrongAnswerIterator = 0; //keep track of wrong answer being added
+      int wrongAnswerIterator = 0; //keep track of wrong answer being added
 
       int[] wrongAnswers = new int[totalIncorrect()]; //holds array to be returned to caller
 
@@ -65,11 +65,11 @@ public class DriverExam {
          } else {
             wrongAnswers[wrongAnswerIterator] = (index + 1);
             index++;
-				wrongAnswerIterator++;
+            wrongAnswerIterator++;
          }
       }while(index < TEST_LENGTH);
 
-     	//return array of incorrect answers
+      //return array of incorrect answers
       return wrongAnswers;
    }
 
@@ -93,7 +93,7 @@ public class DriverExam {
          }
       }while(index < TEST_LENGTH);
 
-		return rightAnswerCount;
+      return rightAnswerCount;
    }
 
    /**
