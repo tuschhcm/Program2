@@ -27,7 +27,7 @@ public class DriverExamDemo {
       Scanner keyboard = new Scanner(System.in);
       
       //create array to store student answers in
-      char[] studentAnswers = new char[20];
+      char[] studentAnswers = new char[TEST_LENGTH];
       
       //create array of legal answers
       char legalAnswers[] = {'A', 'B', 'C', 'D'};
