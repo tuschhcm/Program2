@@ -101,11 +101,14 @@ public class DriverExamDemo {
          System.out.println("Sorry, you failed");
       }
       
-      //display which questions were missed
+      //display which questions were missed (except last one)
       System.out.print("You missed questions: ");
-      for(int i = 0; i < exam.questionsMissed().length; i++) {
+      for(int i = 0; i < exam.totalIncorrect()-1; i++) {
          System.out.print(exam.questionsMissed()[i] + ", ");
       }
+		
+		//display last question missed without a comma following
+		System.out.print(exam.questionsMissed()[exam.totalIncorrect() - 1]);
 
       System.out.println("\n");
    }
