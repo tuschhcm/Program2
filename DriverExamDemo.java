@@ -101,7 +101,7 @@ public class DriverExamDemo {
          System.out.println("Sorry, you failed");
       }
       
-      //display which questions were missed (except last one)
+      //display which questions were missed
       System.out.print("You missed questions");
       for(int i = 0; i < exam.totalIncorrect(); i++) {
          System.out.print(", " + exam.questionsMissed()[i]);
