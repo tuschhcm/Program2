@@ -106,5 +106,7 @@ public class DriverExamDemo {
       for(int i = 0; i < exam.totalIncorrect(); i++) {
          System.out.print(", " + exam.questionsMissed()[i]);
       }
+		
+		System.out.println("\n");
    }
 }
